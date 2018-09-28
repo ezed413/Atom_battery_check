@@ -8,11 +8,11 @@
 
   Hardware:     Arduino Nano
 
-  Software:     Developed using MS Visual Studio Code with the
-  Platformio extention
+  Software:     Developed using Atom with the Platformio package
 
-  Date:         26 September 2018
+  Date:         27 September 2018
   Author:       Eddie L Hill
+
   --------------------------------------------------------------*/
 
 #include <SPI.h>
