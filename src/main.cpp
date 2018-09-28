@@ -10,7 +10,7 @@
 
   Software:     Developed using Atom with the Platformio package
 
-  Date:         27 September 2018
+  Date:         28 September 2018
   Author:       Eddie L Hill
 
   --------------------------------------------------------------*/
