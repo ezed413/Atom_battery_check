@@ -36,11 +36,12 @@ int sum = 0;                          // sum of samples taken
 int firstMeas = 0;                    // first measurement from the A/D
 unsigned char sample_count = 0;       // current sample number
 float voltage = 0.0;                  // calculated voltage
-int testStatus = 0;                   // boolean variable for pass/fail status
 int buttonState = 0;                  // variable for reading the state of the start push button switch
 float voltPercentage;                 // the voltage in percentage
 int switchVal = 0;                    // switch value
 bool mmode;                           // mode place holder
+
+/************************************* start of program **********************************************************/
 
 void setup()
 {
@@ -54,12 +55,12 @@ void setup()
   display.display();
   pinMode(switchPin, INPUT_PULLUP);           // input for toggle switch input
 }
-/************************************* start of program **********************************************************/
+
+/************************************ start of main loop ********************************************************/
 
 void loop()
 {
 
-  /************************************ start of main loop ********************************************************/
   // read the mode switch
   switchVal = digitalRead(switchPin);
   if (switchVal)
