@@ -12,7 +12,6 @@
 
   Date:         28 September 2018
   Author:       Eddie L Hill
-
   --------------------------------------------------------------*/
 
 #include <SPI.h>
@@ -26,8 +25,7 @@ Adafruit_SSD1306 display(OLED_RESET);
 
 
 #define NUM_SAMPLES 10                // number of samples taken of the battery voltage measurement
-#define VoltageDivider1 11.006        // calibration factor for RX unit
-#define VoltageDivider2 10.340        // calibration factor for TX unit
+#define VoltageDivider1 11.006        // voltage divide ratio
 #define timeDelay 1000                // delay in ms to when the voltage is measured when load is applied, 4 sec
 #define switchPin 6                   // mode switch input pin
 #define RX 0                          // RX mode
@@ -40,7 +38,6 @@ unsigned char sample_count = 0;       // current sample number
 float voltage = 0.0;                  // calculated voltage
 int testStatus = 0;                   // boolean variable for pass/fail status
 int buttonState = 0;                  // variable for reading the state of the start push button switch
-float adres = 0.0049;                 // A/D resolution
 float voltPercentage;                 // the voltage in percentage
 int switchVal = 0;                    // switch value
 bool mmode;                           // mode place holder
@@ -72,8 +69,8 @@ void loop()
 
   voltage = 0;          // reset voltage variable
 
-  // take a number of analog samples and add them up and average
-  firstMeas = analogRead(A3);         // throw away first measurement out per Atmel data sheet
+  // take a number of 10 analog samples and add them up and average
+  firstMeas = analogRead(A3);         // throw away first measurement per Atmel data sheet
   while (sample_count < NUM_SAMPLES) {
     sum += analogRead(A3);
     sample_count++;
@@ -86,7 +83,7 @@ void loop()
   // calculate battery voltage
   voltage = voltage * VoltageDivider1;
 
-  // set the mode according to the mode switch position
+  // set the mode (TX or RX) according to the mode switch position
   if (!mmode)
     voltPercentage = voltage / 12.38;  // 12.38 vdc is a fully charged battery of RX
   else
@@ -111,7 +108,5 @@ void loop()
 }
 
 /***************************************** end of main loop ***************************************************/
-
-
 
 /***************************************** end of program *****************************************************/
