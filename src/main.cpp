@@ -88,9 +88,9 @@ void loop()
 
   // set the mode according to the mode switch position
   if (!mmode)
-    voltPercentage = voltage / 12.38;  // 12.63 vdc is a fully charged battery of RX
+    voltPercentage = voltage / 12.38;  // 12.38 vdc is a fully charged battery of RX
   else
-    voltPercentage = voltage / 13.59;  // 13.07 vdc is a fully charged battery of TX
+    voltPercentage = voltage / 13.59;  // 13.59 vdc is a fully charged battery of TX
 
   // calculate the percentage of voltage
   voltPercentage = voltPercentage * 100;
