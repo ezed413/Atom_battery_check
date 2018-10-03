@@ -95,14 +95,19 @@ void loop()
 
   // text display
   display.clearDisplay();
-  display.setTextSize(2);
+  display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 0);
   // display the voltage measured in percentage
-  display.println("Battery");
-  display.print("level:");
-  display.print((int)voltPercentage, DEC);
-  display.print("%");
+  display.println("Battery voltage:");
+  display.println("");
+//display.print("level:");
+//display.print((int)voltPercentage, DEC);
+  //display.print("%");
+  display.setTextSize(2);
+
+  display.print((float)voltage,2);
+  display.print(" V");
   display.display();
   // wait here
   while (1);
